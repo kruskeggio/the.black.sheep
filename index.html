@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Black Sheep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f2eb;
+      --bg2: #ede9df;
+      --card: #faf8f3;
+      --border: #d8d2c4;
+      --text: #1a1714;
+      --muted: #6b6459;
+      --accent: #2d6a4f;
+      --accent2: #b5451b;
+      --tag-bg: #e8e3d8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      padding: 4rem 3rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-prefix {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* DIVIDER */
+    .divider {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    /* GRID */
+    .grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    .card-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      background: var(--tag-bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .tag.green { color: var(--accent); border-color: #9dc4b0; background: #eaf3ee; }
+    .tag.red   { color: var(--accent2); border-color: #e4b09d; background: #faeee8; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--border);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero       { animation: fadeUp 0.5s ease both; }
+    .card:nth-child(1) { animation: fadeUp 0.5s 0.1s ease both; }
+    .card:nth-child(2) { animation: fadeUp 0.5s 0.2s ease both; }
+    .card:nth-child(3) { animation: fadeUp 0.5s 0.3s ease both; }
+    .card:nth-child(4) { animation: fadeUp 0.5s 0.4s ease both; }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero, .grid { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">THE <span>BLACK</span> SHEEP</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#articoli">Articoli</a></li>
+      <li><a href="https://github.com/kruskeggio/the.black.sheep" target="_blank">GitHub</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-prefix">// kruskeggio</p>
+    <h1>The Black Sheep</h1>
+    <p>Pensieri, analisi e articoli scritti fuori dal gregge.</p>
+  </section>
+
+  <hr class="divider">
+
+  <main class="grid" id="articoli">
+
+    <!-- ARTICOLO DI PROVA -->
+    <a class="card" href="articoli/articolo-di-prova.html">
+      <span class="card-date">2026-03-06</span>
+      <h2>Articolo di prova</h2>
+      <p>Questo è il mio primo articolo pubblicato su GitHub. Un esperimento di scrittura e pubblicazione senza piattaforme intermedie.</p>
+      <div class="tags">
+        <span class="tag green">inizio</span>
+        <span class="tag">github</span>
+      </div>
+    </a>
+
+    <!-- PLACEHOLDER -->
+    <a class="card" href="#">
+      <span class="card-date">prossimamente</span>
+      <h2>Il prossimo articolo</h2>
+      <p>Il tuo secondo articolo apparirà qui. Basta aggiungere una card in questo file e creare il documento Markdown.</p>
+      <div class="tags">
+        <span class="tag red">in arrivo</span>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    the.black.sheep &mdash; pubblicato su github pages
+  </footer>
+
+</body>
+</html>
