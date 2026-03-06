@@ -1,3 +1,8 @@
+---
+layout: post
+title: Articolo di prova
+date: 2026-03-06
+---
 # Il mio primo articolo
 
 Questa è una prova di pubblicazione su GitHub.
