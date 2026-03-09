@@ -5,73 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Black Sheep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #000000;
-      --card: #0c0c0c;
-      --border: #1e1e1e;
-      --text: #ffffff;
-      --muted: #555;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'DM Serif Display', Georgia, serif; min-height: 100vh; }
-
-    /* NAV */
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 3rem; position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, border-color 0.3s; }
-    nav.scrolled { background: rgba(0,0,0,0.95); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); }
-    .logo { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; color: #ffffff; text-decoration: none; }
-    .logo span { color: #ffffff; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: #ffffff; }
-
-    /* HERO */
-    .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; overflow: hidden; }
-    .hero-title { font-family: 'IBM Plex Mono', monospace; font-size: clamp(3.5rem, 12vw, 10rem); line-height: 0.95; letter-spacing: -0.02em; color: #ffffff; animation: fadeUp 0.8s ease both; }
-    .hero-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--muted); margin-top: 2rem; animation: fadeUp 0.8s 0.2s ease both; }
-    .hero-desc { margin-top: 1rem; font-size: 1.1rem; color: #444; font-style: italic; animation: fadeUp 0.8s 0.35s ease both; font-family: 'DM Serif Display', serif; }
-    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; animation: bounce 2s 1s infinite; text-decoration: none; }
-
-    /* SECTION */
-    .section { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 3rem; }
-    .section-header .slash { font-family: 'IBM Plex Mono', monospace; font-size: 1.2rem; color: #ffffff; }
-    .section-header h2 { font-family: 'IBM Plex Mono', monospace; font-size: 2rem; font-weight: 700; letter-spacing: 0.05em; color: #ffffff; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.2rem; }
-
-    /* CARD */
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 3px; text-decoration: none; color: inherit; display: flex; flex-direction: column; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
-    .card:hover { border-color: rgba(255,255,255,0.2); box-shadow: 0 0 30px rgba(255,255,255,0.04); transform: translateY(-2px); }
-    .card-cover { width: 100%; height: 200px; object-fit: cover; display: block; background: #111; }
-    .card-body { padding: 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
-    .card-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--muted); }
-    .card h3 { font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; font-weight: 700; line-height: 1.4; color: #ffffff; }
-    .card p { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: #444; line-height: 1.7; flex: 1; }
-
-    /* TAGS — linea colorata sotto, nessun box */
-    .tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.6rem; align-items: center; }
-    .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: transparent; border: none; padding: 0 0 3px 0; border-bottom: 2px solid #444; }
-    .tag:nth-child(4n+1) { border-color: #e05c5c; }
-    .tag:nth-child(4n+2) { border-color: #e0a85c; }
-    .tag:nth-child(4n+3) { border-color: #5ce08a; }
-    .tag:nth-child(4n+4) { border-color: #5ca8e0; }
-
-    footer { text-align: center; padding: 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: #222; border-top: 1px solid var(--border); letter-spacing: 0.1em; }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-    .card:nth-child(1) { animation: fadeUp 0.5s 0.1s ease both; }
-    .card:nth-child(2) { animation: fadeUp 0.5s 0.2s ease both; }
-    .card:nth-child(3) { animation: fadeUp 0.5s 0.3s ease both; }
-    .card:nth-child(4) { animation: fadeUp 0.5s 0.4s ease both; }
-    @media (max-width: 640px) { nav { padding: 1rem 1.5rem; } .grid { grid-template-columns: 1fr; } .section { padding: 3rem 1.5rem 4rem; } }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav id="nav">
-    <a href="index.html" class="logo">THE <span>BLACK</span> SHEEP</a>
+    <a href="index.html" class="logo">THE BLACK SHEEP</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="#articoli">Articoli</a></li>
@@ -82,7 +20,7 @@
   <section class="hero">
     <h1 class="hero-title">THE BLACK<br>SHEEP</h1>
     <p class="hero-sub">
-      <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; background:#fff; border-radius:3px; padding:2px; margin-right:6px;">
+      <svg class="sheep-icon" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="26" cy="30" rx="14" ry="12" fill="#000"/>
         <ellipse cx="40" cy="26" rx="10" ry="9" fill="#000"/>
         <circle cx="18" cy="22" r="8" fill="#000"/>
@@ -103,7 +41,7 @@
 
   <section class="section" id="articoli">
     <div class="section-header">
-      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#fff; border-radius:4px; padding:3px; flex-shrink:0;">
+      <svg class="sheep-icon" width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="26" cy="30" rx="14" ry="12" fill="#000"/>
         <ellipse cx="40" cy="26" rx="10" ry="9" fill="#000"/>
         <circle cx="18" cy="22" r="8" fill="#000"/>
@@ -136,7 +74,7 @@
       </a>
 
       <a class="card" href="articoli/exchange-split-permissions.html">
-        <img class="card-cover" src="images/exchange-cover.jpg" alt="Exchange on-prem" onerror="this.style.display='none'">
+        <img class="card-cover" src="assets/images/splitperm.jpg" alt="Exchange on-prem" onerror="this.style.display='none'">
         <div class="card-body">
           <span class="card-date">2026-03-06</span>
           <h3>Exchange on-prem: il rischio che dorme nella tua configurazione di default</h3>
