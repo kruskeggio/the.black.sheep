@@ -50,10 +50,13 @@
     .card h3 { font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; font-weight: 700; line-height: 1.4; color: #ffffff; }
     .card p { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: #444; line-height: 1.7; flex: 1; }
 
-    /* TAGS — tutti bianchi, uniformi */
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
-    .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; border: 1px solid rgba(255,255,255,0.3); color: #ffffff; background: transparent; }
-    .tag.green, .tag.warm, .tag.blue, .tag.yellow { color: #ffffff; border-color: rgba(255,255,255,0.3); }
+    /* TAGS — linea colorata sotto, nessun box */
+    .tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.6rem; align-items: center; }
+    .tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: transparent; border: none; padding: 0 0 3px 0; border-bottom: 2px solid #444; }
+    .tag:nth-child(4n+1) { border-color: #e05c5c; }
+    .tag:nth-child(4n+2) { border-color: #e0a85c; }
+    .tag:nth-child(4n+3) { border-color: #5ce08a; }
+    .tag:nth-child(4n+4) { border-color: #5ca8e0; }
 
     footer { text-align: center; padding: 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: #222; border-top: 1px solid var(--border); letter-spacing: 0.1em; }
 
