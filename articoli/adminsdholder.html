@@ -26,7 +26,7 @@ Questa guida spiega come risolvere il problema dell'ereditarietà dei permessi c
     3. Cliccare sul pulsante **Enable Inheritance** (o selezionare la spunta **Include inheritable permissions from the object's parent**).
 - **Motivo:** Il meccanismo AdminSDHolder non è in grado di "ripulire" dopo se stesso: una volta che l'ereditarietà è stata disabilitata, rimane tale anche se l'oggetto non è più protetto. È quindi necessario un intervento manuale per consentire all'oggetto di ricevere nuovamente i permessi dalla sua OU di appartenenza.
 
-**Step 5 (Opzionale): Forzare il processo SDPROP**
+**Step 5 (Opzionale): Forzare il processo -SDPROP-**
 
 - **Azione:** Se hai modificato il blueprint dei permessi nel container AdminSDHolder e vuoi che le modifiche siano applicate immediatamente a tutti gli oggetti protetti della domanda:
     1. Aprire **LDP.EXE**.
