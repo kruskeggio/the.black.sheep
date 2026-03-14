@@ -5,7 +5,7 @@
     <link>https://theblacksheepblog.github.io/the.black.sheep/</link>
     <description>Scrivo quello che penso. Fuori dal gregge.</description>
     <language>it</language>
-    <lastBuildDate>Sat, 14 Mar 2026 12:25:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 12:30:01 +0000</lastBuildDate>
     <atom:link href="https://theblacksheepblog.github.io/the.black.sheep/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>La falla silenziosa: i rischi dell'account Domain Join in Active Directory .</title>
@@ -22,6 +22,13 @@
       <description>Hai appena passato mezz'ora a sistemare i permessi su un account in Active Directory. Riabiliti l'ereditarietà, salvi, tutto ok. Un'ora dopo il tuo collega ti c...</description>
     </item>
     <item>
+      <title>La falla silenziosa: i rischi dell'account Domain Join in Active Directory .</title>
+      <link>https://theblacksheepblog.github.io/the.black.sheep/articoli/domain-join-risks.html</link>
+      <guid>https://theblacksheepblog.github.io/the.black.sheep/articoli/domain-join-risks.html</guid>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Un tecnico dell'Help Desk scarta un nuovo laptop aziendale. Avvia l'installazione di Windows 11. Preme F12 per il boot PXE.</description>
+    </item>
+    <item>
       <title>Zero Trust non è un prodotto. È una mentalità .</title>
       <link>https://theblacksheepblog.github.io/the.black.sheep/articoli/demo-zero-trust.html</link>
       <guid>https://theblacksheepblog.github.io/the.black.sheep/articoli/demo-zero-trust.html</guid>
@@ -29,9 +36,23 @@
       <description>Ogni vendor di sicurezza ha una soluzione Zero Trust. Firewall Zero Trust. VPN Zero Trust. Antivirus Zero Trust. Se metti "Zero Trust" su qualsiasi cosa, il pre...</description>
     </item>
     <item>
+      <title>Zero Trust non è un prodotto. È una mentalità .</title>
+      <link>https://theblacksheepblog.github.io/the.black.sheep/articoli/zero-trust.html</link>
+      <guid>https://theblacksheepblog.github.io/the.black.sheep/articoli/zero-trust.html</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Ogni vendor di sicurezza ha una soluzione Zero Trust. Firewall Zero Trust. VPN Zero Trust. Antivirus Zero Trust. Se metti "Zero Trust" su qualsiasi cosa, il pre...</description>
+    </item>
+    <item>
       <title>27 anni di IT. Bocciato per 20 centesimi .</title>
       <link>https://theblacksheepblog.github.io/the.black.sheep/articoli/27-anni-di-it-bocciato.html</link>
       <guid>https://theblacksheepblog.github.io/the.black.sheep/articoli/27-anni-di-it-bocciato.html</guid>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <description>27 anni di lavoro nell'IT.</description>
+    </item>
+    <item>
+      <title>27 anni di IT. Bocciato per 20 centesimi .</title>
+      <link>https://theblacksheepblog.github.io/the.black.sheep/articoli/ho-fallito-la-certificazione.html</link>
+      <guid>https://theblacksheepblog.github.io/the.black.sheep/articoli/ho-fallito-la-certificazione.html</guid>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
       <description>27 anni di lavoro nell'IT.</description>
     </item>
